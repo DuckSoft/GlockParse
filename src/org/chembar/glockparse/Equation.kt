@@ -20,7 +20,7 @@ class Equation
  * @throws EquationParseError
  */
 (val equationText: String) {
-    val sides= equationText.split(Regex("(-+|=+)>?"), 2).apply {
+    val sides = equationText.split(Regex("(-+|=+)>?"), 2).apply {
         // 将化学方程式左右两侧分开
         // 若所得结果数不为2，则抛出异常
         if (this.size != 2) throw EquationParseError("无法分离两侧方程式")
@@ -48,6 +48,10 @@ class Equation
 
     /** 获取本化学方程式对象的字符串表示 */
     override fun toString() = sides.toString()
+
+    // 用于Kotlin自动解构
+    operator fun component1() = sides[0]
+    operator fun component2() = sides[1]
 
     /**
      * EquationParseError -- 方程式分析异常类
