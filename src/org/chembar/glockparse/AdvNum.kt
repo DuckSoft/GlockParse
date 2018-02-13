@@ -107,6 +107,25 @@ class AdvNum {
     operator fun component2() = numMin
     operator fun component3() = numMax
 
+
+    /**
+     * 获取中心数。
+     * 亦即最大数与最小数的**平均值**。
+     */
+    val central get() = (numMax + numMin) / 2
+
+    /**
+     * 使本[AdvNum]中心化。
+     * 亦即令实际数值等于中心数（[central]）。
+     *
+     */
+    fun centralize() {numInner = central}
+
+    // 误差系列
+    val errUpper get() = numMax - numInner
+    val errLower get() = numInner - numMin
+    val errTotal get() = numMax - numMin
+
     /**
      * 获取本[AdvNum]的字符串表示。
      */
