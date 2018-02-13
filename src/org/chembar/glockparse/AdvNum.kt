@@ -78,6 +78,12 @@ class AdvNum {
     operator fun times(op: Double) = times(AdvNum(op))
     operator fun div(op: Double) = div(AdvNum(op))
 
+    // 与整数的二元运算符重载
+    operator fun plus(op: Int) = plus(op.toDouble())
+    operator fun minus(op: Int) = minus(op.toDouble())
+    operator fun times(op: Int) = times(op.toDouble())
+    operator fun div(op: Int) = div(op.toDouble())
+
     // 自运算符重载
     operator fun plusAssign(op: AdvNum) {
         this.numInner += op.numInner
