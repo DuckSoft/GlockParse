@@ -19,6 +19,7 @@ class Equation
  * @return 化学方程式对象
  * @throws EquationParseError
  */
+@Throws(EquationParseError::class) constructor
 (val equationText: String) {
     val sides = equationText.split(Regex("(-+|=+)>?"), 2).apply {
         // 将化学方程式左右两侧分开
