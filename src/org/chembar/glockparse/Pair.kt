@@ -5,7 +5,7 @@ package org.chembar.glockparse
  *
  * @param L Pair左侧类型
  * @param R Pair右侧类型
-</R></L> */
+ */
 class Pair<L, R>(var l: L, var r: R) {
     // 用于Kotlin自动解构
     operator fun component1() = l
