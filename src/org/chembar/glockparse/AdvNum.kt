@@ -72,6 +72,36 @@ class AdvNum {
         )
     }
 
+    // 与双精度浮点数的二元运算符重载
+    operator fun plus(op: Double) = plus(AdvNum(op))
+    operator fun minus(op: Double) = minus(AdvNum(op))
+    operator fun times(op: Double) = times(AdvNum(op))
+    operator fun div(op: Double) = div(AdvNum(op))
+
+    // 自运算符重载
+    operator fun plusAssign(op: AdvNum) {
+        this.numInner += op.numInner
+        this.numMin += op.numMin
+        this.numMax += op.numMax
+    }
+    operator fun minusAssign(op: AdvNum) {
+        this.numInner -= op.numInner
+        this.numMin -= op.numMin
+        this.numMax -= op.numMax
+    }
+    operator fun timesAssign(op: AdvNum) {
+        // FIXME: must be positive!
+        this.numInner *= op.numInner
+        this.numMin *= op.numMin
+        this.numMax *= op.numMax
+    }
+    operator fun divAssign(op: AdvNum) {
+        // FIXME: must be positive!
+        this.numInner /= op.numInner
+        this.numMin /= op.numMax
+        this.numMax /= op.numMin
+    }
+
     // Kotlin自动解构用
     operator fun component1() = numInner
     operator fun component2() = numMin
