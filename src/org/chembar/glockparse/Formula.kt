@@ -59,6 +59,3 @@ class Formula
     class FormulaParsingException(reason: String) : Exception("Formula parsing error: $reason")
 }
 
-private fun HashMap<String, Int>.merge(sourceMap: HashMap<String, Int>) {
-    sourceMap.forEach { atom, num -> this.merge(atom, num, Int::plus) }
-}
